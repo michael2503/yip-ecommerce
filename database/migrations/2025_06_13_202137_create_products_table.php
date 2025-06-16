@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->string('category')->nullable();
-            $table->double('old_price')->default(0);
+            $table->double('old_price')->default(0)->nullable();
             $table->double('sales_price')->default(0);
             $table->integer('quantity')->default(0);
             $table->integer('sold')->default(0);

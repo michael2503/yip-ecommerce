@@ -28,7 +28,7 @@
                                             <img class="pic-1" src="{{ $pro->product->image }}">
                                         </a>
                                         <ul class="product-links text-center">
-                                            <li><a style="background: #000066" href="{{ route('addProToWishList', $pro->id) }}" data-tip="Add to Wishlist"><i class="fa fa-heart" style="color: #fff"></i></a></li>
+                                            <li><a style="background: #000066" href="{{ route('addProToWishList', $pro->product->id) }}" data-tip="Add to Wishlist"><i class="fa fa-heart" style="color: #fff"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="product-content">

@@ -18,7 +18,11 @@ class UploadFile
 
     public static function uploadimage($file, $folder)
     {
-        $imageName = time().'.'.$file->getClientOriginalExtension();
+        $imageName = time().Str::random(8).'.'.$file->getClientOriginalExtension();
+        // live upload
+        // $file->move($folder, $imageName);
+
+        // local upload
         $file->move(public_path($folder), $imageName);
         return url('').'/'.$folder.'/'.$imageName;
     }

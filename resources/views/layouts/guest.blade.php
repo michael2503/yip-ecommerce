@@ -111,7 +111,7 @@
                                         Product
                                     </a>
                                 </div>
-                                @if(Auth::user())
+                                @if(Auth::user() && Auth::user()->account_type == 'user')
                                 <div class="link mt-2 mr-3">
                                     <a href="{{ route('getOrder') }}" @if($attributes['activepage'] == 'order') class="active" @endif>
                                         Orders
@@ -136,7 +136,7 @@
                                     </a>
                                 </div>
 
-                                @if (Auth::user())
+                                @if (Auth::user() && Auth::user()->account_type == 'user')
                                 <div class="createaccbtn mt-2">
                                     <a href="javascript:void(0)" onclick="event.preventDefault(); document.getElementById('userLogout').submit();">
                                         Logout
@@ -188,7 +188,7 @@
                                                     Product
                                                 </a>
                                             </li>
-                                            @if (Auth::user())
+                                            @if (Auth::user() && Auth::user()->account_type == 'user')
                                             <li>
                                                 <a href="{{ route('dashboard') }}">
                                                     Dashboard

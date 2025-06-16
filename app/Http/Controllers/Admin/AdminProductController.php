@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductImage;
+use App\Models\WishList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -149,7 +150,6 @@ class AdminProductController extends Controller
 
             $data = $request->all();
             $data['slug'] = Str::slug($data['name']);
-            $data['image'] = $img;
 
             $single->fill($data);
             $single->save();
@@ -168,6 +168,8 @@ class AdminProductController extends Controller
     public function adminDeletePro(Request $request)
     {
         $del = Product::where('id', $request->id)->delete();
+        WishList::where('product_id', $request->id)->delete();
+        ProductImage::where('product_id', $request->id)->delete();
         return back()->with('success', 'Product successfully deleted');
     }
 
